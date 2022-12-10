@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA3_X00180961", "CA3_X00180
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{DBFBB52C-45BA-4569-9A3A-1AFDB9097CB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopRepository", "ShopRepository\ShopRepository.csproj", "{DBD93F3C-C30D-448C-89CE-CE1DA229892E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DBFBB52C-45BA-4569-9A3A-1AFDB9097CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBFBB52C-45BA-4569-9A3A-1AFDB9097CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBFBB52C-45BA-4569-9A3A-1AFDB9097CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD93F3C-C30D-448C-89CE-CE1DA229892E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD93F3C-C30D-448C-89CE-CE1DA229892E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD93F3C-C30D-448C-89CE-CE1DA229892E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD93F3C-C30D-448C-89CE-CE1DA229892E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
