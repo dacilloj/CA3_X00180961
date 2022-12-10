@@ -23,6 +23,10 @@ namespace Models
         [Required]
         public int ItemID { get; set; }
 
+        public ItemModel Item { get; set; } = default!;
+
+        public ShopModel Shop { get; set; } = default!;
+
 
     }
 }

@@ -21,6 +21,8 @@ namespace Models
 
 
         //foreign attributes
+        public ICollection<ProductModel> Products { get; set; } = default!;
+
         
     }
 }
