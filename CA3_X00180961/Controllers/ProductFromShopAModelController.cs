@@ -12,25 +12,25 @@ namespace CA3_X00180961.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductModelsController : ControllerBase
+    public class ProductFromShopAModelController : ControllerBase
     {
         private readonly CA3_X00180961Context _context;
 
-        public ProductModelsController(CA3_X00180961Context context)
+        public ProductFromShopAModelController(CA3_X00180961Context context)
         {
             _context = context;
         }
 
         // GET: api/ProductModels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductModel>>> GetProductModel()
+        public async Task<ActionResult<IEnumerable<ProductFromShopAModel>>> GetProductModel()
         {
             return await _context.ProductModel.ToListAsync();
         }
 
         // GET: api/ProductModels/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductModel>> GetProductModel(int id)
+        public async Task<ActionResult<ProductFromShopAModel>> GetProductModel(int id)
         {
             var productModel = await _context.ProductModel.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace CA3_X00180961.Controllers
         // PUT: api/ProductModels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductModel(int id, ProductModel productModel)
+        public async Task<IActionResult> PutProductModel(int id, ProductFromShopAModel productModel)
         {
             if (id != productModel.ProductId)
             {
@@ -76,7 +76,7 @@ namespace CA3_X00180961.Controllers
         // POST: api/ProductModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ProductModel>> PostProductModel(ProductModel productModel)
+        public async Task<ActionResult<ProductFromShopAModel>> PostProductModel(ProductFromShopAModel productModel)
         {
             _context.ProductModel.Add(productModel);
             await _context.SaveChangesAsync();

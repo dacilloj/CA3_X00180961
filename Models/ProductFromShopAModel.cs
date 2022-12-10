@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class ProductModel
+    public class ProductFromShopAModel
     {
         [Required]
         [Key]
