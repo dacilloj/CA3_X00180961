@@ -1,17 +1,42 @@
 # OneShop
-OneShop campares items from similar shops.
+OneShop campares similar items from shops.
 
 
 ##Database Implementation
 Statement of Requirements
 Comparison of prices for known shops
-Shops to confirm
 
 System Specification
+Product list of shops (shops are the entities)
+	-ShopID
+	-ShopName
+	-ProductID
+	-itemID (FK)
+	-price for the product specific to the shop
+	- Item site to the shop (optional)
+
+An enitity to link the items
+	-itemID
+	-itemtype
+	-item description (may be different entity)
+	-item name
+	-
+
+
 
 Document Design
 
 Initial System
+- MockDB
+	Contains 2 shops entities
+	Contains items entity
+	
+- RealDB
+	More details to be added
+
+ - Rest API
+	- Select by shop. Routing api/shop/items??
+	- 
 
 Released System
 
