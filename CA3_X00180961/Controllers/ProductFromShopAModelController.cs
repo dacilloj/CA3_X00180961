@@ -25,14 +25,14 @@ namespace CA3_X00180961.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductFromShopAModel>>> GetProductModel()
         {
-            return await _context.ProductModel.ToListAsync();
+            return await _context.ProductFromShopAModel.ToListAsync();
         }
 
         // GET: api/ProductModels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductFromShopAModel>> GetProductModel(int id)
         {
-            var productModel = await _context.ProductModel.FindAsync(id);
+            var productModel = await _context.ProductFromShopAModel.FindAsync(id);
 
             if (productModel == null)
             {
@@ -78,7 +78,7 @@ namespace CA3_X00180961.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductFromShopAModel>> PostProductModel(ProductFromShopAModel productModel)
         {
-            _context.ProductModel.Add(productModel);
+            _context.ProductFromShopAModel.Add(productModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetProductModel", new { id = productModel.ProductId }, productModel);
@@ -88,13 +88,13 @@ namespace CA3_X00180961.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProductModel(int id)
         {
-            var productModel = await _context.ProductModel.FindAsync(id);
+            var productModel = await _context.ProductFromShopAModel.FindAsync(id);
             if (productModel == null)
             {
                 return NotFound();
             }
 
-            _context.ProductModel.Remove(productModel);
+            _context.ProductFromShopAModel.Remove(productModel);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace CA3_X00180961.Controllers
 
         private bool ProductModelExists(int id)
         {
-            return _context.ProductModel.Any(e => e.ProductId == id);
+            return _context.ProductFromShopAModel.Any(e => e.ProductId == id);
         }
     }
 }

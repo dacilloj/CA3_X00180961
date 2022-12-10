@@ -14,7 +14,7 @@ namespace CA3_X00180961.ShopRepository
         {
         }
 
-        public DbSet<Models.ProductFromShopAModel> ProductModel { get; set; } = default!;
+        public DbSet<Models.ProductFromShopAModel> ProductFromShopAModel { get; set; } = default!;
 
         public DbSet<Models.ItemModel> ItemModel { get; set; } = default!;
 
