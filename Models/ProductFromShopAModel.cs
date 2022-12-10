@@ -17,12 +17,13 @@ namespace Models
         public double ProductPrice { get; set; }
 
         //foreign relationships
-        [Required]
-        public int ShopID { get; set; }
+        public int ShopID { get; set; } = 1
 
         [Required]
-        public int ItemID { get; set; }
+        public int? ItemID { get; set; }
 
+
+        //may not need the below
         public ItemModel Item { get; set; } = default!;
 
         public ShopModel Shop { get; set; } = default!;
