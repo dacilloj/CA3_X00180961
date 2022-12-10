@@ -7,13 +7,17 @@ Statement of Requirements
 Comparison of prices for known shops
 
 System Specification
+Shop Entity
+	ShopID
+	ShopName
+	
 Product list of shops (shops are the entities)
-	-ShopID
-	-ShopName
-	-ProductID
+	-ShopID (FK)
+	-ProductID (PK)
 	-itemID (FK)
 	-price for the product specific to the shop
 	- Item site to the shop (optional)
+	
 
 An enitity to link the items
 	-itemID
