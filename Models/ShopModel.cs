@@ -16,6 +16,6 @@ namespace Models
         [Required]
         public string ShopName { get; set; } = "";
 
-        public virtual ICollection<ProductModel> Products { get; set; } = default!;
+        public virtual ICollection<ProductFromShopAModel> Products { get; set; } = default!;
     }
 }

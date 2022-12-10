@@ -21,7 +21,7 @@ namespace Models
 
 
         //foreign attributes
-        public virtual ICollection<ProductModel> Products { get; set; } = default!;
+        public virtual ICollection<ProductFromShopAModel> Products { get; set; } = default!;
 
         
     }
