@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace CA3_X00180961.Data
+namespace CA3_X00180961.ShopRepository
 {
     public class CA3_X00180961Context : DbContext
     {
