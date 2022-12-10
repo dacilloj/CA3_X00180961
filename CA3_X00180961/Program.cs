@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using CA3_X00180961.Data;
+using CA3_X00180961.ShopRepository;
 namespace CA3_X00180961
 {
     public class Program
