@@ -17,7 +17,7 @@ namespace Models
         public double ProductPrice { get; set; }
 
         //foreign relationships
-        public int ShopID { get; set; } = 1
+        public int ShopID { get; set; } = 1;
 
         [Required]
         public int? ItemID { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Models
         public double ProductPrice { get; set; }
 
         //foreign relationships
-        public int ShopID { get; set; } = 2
+        public int ShopID { get; set; } = 2;
 
         [Required]
         public int? ItemID { get; set; }

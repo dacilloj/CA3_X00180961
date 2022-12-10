@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CA3_X00180961.Data;
 namespace CA3_X00180961
 {
     public class Program
@@ -5,6 +8,8 @@ namespace CA3_X00180961
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<CA3_X00180961Context>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("CA3_X00180961Context") ?? throw new InvalidOperationException("Connection string 'CA3_X00180961Context' not found.")));
 
             // Add services to the container.
 
