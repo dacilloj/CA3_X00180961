@@ -17,5 +17,7 @@ namespace CA3_X00180961.Data
         public DbSet<Models.ProductFromShopAModel> ProductModel { get; set; } = default!;
 
         public DbSet<Models.ItemModel> ItemModel { get; set; } = default!;
+
+        public DbSet<Models.ProductFromShopBModel> ProductFromShopBModel { get; set; }
     }
 }
