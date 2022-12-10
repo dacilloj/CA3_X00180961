@@ -1,6 +1,6 @@
 ﻿namespace ShopRepository
 {
-    public class Class1
+    public class ReadDb : IShopRepo
     {
 
     }
