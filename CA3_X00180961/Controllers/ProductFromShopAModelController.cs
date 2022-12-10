@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CA3_X00180961.Data;
 using Models;
+using CA3_X00180961.ShopRepository;
 
 namespace CA3_X00180961.Controllers
 {
