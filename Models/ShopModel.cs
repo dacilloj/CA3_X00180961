@@ -16,6 +16,11 @@ namespace Models
         [Required]
         public string ShopName { get; set; } = "";
 
-        public virtual ICollection<ProductFromShopAModel> Products { get; set; } = default!;
+        //foreign attributes. Don't think I need this
+        //[InverseProperty("ProductFromShopAModel")]
+        public virtual ProductFromShopAModel? ProductsA { get; set; }
+
+        // [InverseProperty("ProductFromShopBModel")]
+        public virtual  ProductFromShopBModel? ProductsB { get; set; }
     }
 }
