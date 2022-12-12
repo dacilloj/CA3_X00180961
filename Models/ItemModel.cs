@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Models
 {
@@ -11,7 +13,7 @@ namespace Models
         public int ItemId { get; set; }
 
         [Required]
-        [Display (Name = "Item")]
+        [Display (Name = "Name")]
         public string ItemName { get; set; } = "";
 
 
@@ -20,8 +22,12 @@ namespace Models
         public string ItemType { get; set;  } = "";
 
 
-        //foreign attributes
-        public virtual ICollection<ProductFromShopAModel> Products { get; set; } = default!;
+        //foreign attributes. Don't think I need this
+        //[InverseProperty("ProductFromShopAModel")]
+       public  virtual ProductFromShopAModel? ProductsA { get; set; }
+
+       // [InverseProperty("ProductFromShopBModel")]
+       public virtual ProductFromShopBModel? ProductsB { get; set; } 
 
         
     }

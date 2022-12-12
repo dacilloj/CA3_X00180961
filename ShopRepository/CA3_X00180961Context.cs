@@ -23,5 +23,8 @@ namespace CA3_X00180961.ShopRepository
 
         public DbSet<Models.ShopModel> ShopModel { get; set; } = default!;
 
+
+        //can use modelBuilder or data annotations to denote entity replationships
+        
     }
 }
