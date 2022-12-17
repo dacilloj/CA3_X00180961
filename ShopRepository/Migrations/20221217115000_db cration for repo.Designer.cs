@@ -4,6 +4,7 @@ using CA3_X00180961.ShopRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ShopRepository.Migrations
 {
     [DbContext(typeof(CA3_X00180961Context))]
-    partial class CA3_X00180961ContextModelSnapshot : ModelSnapshot
+    [Migration("20221217115000_db cration for repo")]
+    partial class dbcrationforrepo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
