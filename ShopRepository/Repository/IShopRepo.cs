@@ -9,9 +9,8 @@ namespace ShopRepository.Repository
 {
     public interface IShopRepo
     {
-        public IEnumerable<ItemModel> GetItemModels()
-        {
-
-        }
+        public IEnumerable<ItemModel> GetItemModels();
+        void CreateItem(ItemModel item);
+        void UpdateItem(int id, ItemModel item);
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopRepository
 {
-    public class MockDB : IShopRepo
+    public class MockDB 
     {
         IEnumerable<ProductFromShopAModel> MockShopA = new List<ProductFromShopAModel> 
         {
@@ -38,6 +38,9 @@ namespace ShopRepository
        
         };
 
-    
+        public IEnumerable<ItemModel> GetItemModels()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

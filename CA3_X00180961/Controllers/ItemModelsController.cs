@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using CA3_X00180961.ShopRepository;
+using ShopRepository.Repository;
+using System.ComponentModel.DataAnnotations;
 
 namespace CA3_X00180961.Controllers
 {
@@ -14,23 +16,37 @@ namespace CA3_X00180961.Controllers
     [ApiController]
     public class ItemModelsController : ControllerBase
     {
-        private readonly CA3_X00180961Context _context;
+        private readonly IShopRepo _repo;
 
-        public ItemModelsController(CA3_X00180961Context context)
+        public ItemModelsController(IShopRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: api/ItemModels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ItemModel>>> GetItemModel()
+       
+        public  ActionResult<IEnumerable<ItemModel>> GetItemModel()
         {
-            return await _context.ItemModel.Include(nameof(ItemModel.productFromShopAModel)) //caused a cycle
-                                           .Include(nameof(ItemModel.productFromShopBModel))
+            //return await _context.ItemModel.Include(nameof(ItemModel.productFromShopAModel)) //caused a cycle
+            //                               .Include(nameof(ItemModel.productFromShopBModel))
                                            
-                                            .ToListAsync();
+            //                               .ToListAsync();
+            
+            return  _repo.GetItemModels().ToList();
         }
 
+        //POST: api/ItemModels
+       
+        [HttpPost]
+        public ActionResult<ItemModel> PostItemModel(ItemModel itemModel)
+        {
+
+            _repo.CreateItem(itemModel);
+            return CreatedAtAction("GetItemModel", new { id = itemModel.ItemId }, itemModel);
+        }
+        
+        /*
         // GET: api/ItemModels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ItemModel>> GetItemModel(int id)
@@ -76,16 +92,7 @@ namespace CA3_X00180961.Controllers
             return NoContent();
         }
 
-        // POST: api/ItemModels
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<ItemModel>> PostItemModel(ItemModel itemModel)
-        {
-            _context.ItemModel.Add(itemModel);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetItemModel", new { id = itemModel.ItemId }, itemModel);
-        }
+        
 
         // DELETE: api/ItemModels/5
         [HttpDelete("{id}")]
@@ -107,5 +114,6 @@ namespace CA3_X00180961.Controllers
         {
             return _context.ItemModel.Any(e => e.ItemId == id);
         }
+        */
     }
 }
