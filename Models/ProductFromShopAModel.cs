@@ -28,13 +28,10 @@ namespace Models
         public int? ItemID { get; set; }
 
 
-        //Model Navigaiton propert
+        //Model Navigaiton propert 
         //may not need the below
         
         public virtual ItemModel? Item { get; set; }
-
-
-        
         public virtual ShopModel? Shop { get; set; }
 
 

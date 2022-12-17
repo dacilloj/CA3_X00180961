@@ -23,13 +23,13 @@ namespace Models
         public int? ShopID { get; set; } = 2;
 
         [Required]
-        public int? ItemID { get; set; }
+        public int ItemID { get; set; }
 
 
         //may not need the below
-        public ItemModel Item { get; set; } = default!;
+        public virtual ItemModel? Item { get; set; }
 
-        public ShopModel Shop { get; set; } = default!;
+        public virtual ShopModel? Shop { get; set; } 
 
     }
 }

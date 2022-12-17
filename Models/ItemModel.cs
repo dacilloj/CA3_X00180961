@@ -25,12 +25,10 @@ namespace Models
 
         //foreign attributes. Don't think I need this
         //[InverseProperty("ProductFromShopAModel")]
-        [JsonIgnore]
+        
        public  virtual ProductFromShopAModel? ProductsA { get; set; }
 
-        [JsonIgnore]
-       // [InverseProperty("ProductFromShopBModel")]
-       public virtual ProductFromShopBModel? ProductsB { get; set; } 
+        public virtual ProductFromShopBModel? ProductsB { get; set; } 
 
         
     }

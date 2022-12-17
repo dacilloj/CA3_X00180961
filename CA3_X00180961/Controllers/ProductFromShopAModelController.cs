@@ -25,7 +25,7 @@ namespace CA3_X00180961.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductFromShopAModel>>> GetProductModel()
         {
-            return await _context.ProductFromShopAModel//.Include("ItemModel")
+            return await _context.ProductFromShopAModel//.Include(nameof(Models.ProductFromShopAModel.Item).Include(nameof(ProductFromShopAModel.Shop) //caused a cyle
                                     .ToListAsync();
         }
 
