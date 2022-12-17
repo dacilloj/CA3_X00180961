@@ -7,14 +7,14 @@ namespace ShopViewClient.Controllers
 {
     public class HomeController : Controller
     {
-        string Baseurl = "http://192.168.95.1:5555/";
+        //string Baseurl = "http://192.168.95.1:5555/";
         public async Task<ActionResult> Index()
         {
             List<ItemModel> Items = new List<ItemModel>();
             using (var client = new HttpClient())
             {
                 //Passing service base url
-                client.BaseAddress = new Uri(Baseurl);
+                //client.BaseAddress = new Uri(Baseurl);
                 client.DefaultRequestHeaders.Clear();
                 //Define request data format
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
