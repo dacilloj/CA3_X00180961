@@ -25,8 +25,10 @@ namespace CA3_X00180961.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemModel>>> GetItemModel()
         {
-            return await _context.ItemModel//.Include("ProductsA").Include("ProductsB") //caused a cycle
-                                    .ToListAsync();
+            return await _context.ItemModel.Include(nameof(ItemModel.productFromShopAModel)) //caused a cycle
+                                           .Include(nameof(ItemModel.productFromShopBModel))
+                                           
+                                            .ToListAsync();
         }
 
         // GET: api/ItemModels/5

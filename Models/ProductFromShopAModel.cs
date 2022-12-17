@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -24,15 +25,17 @@ namespace Models
         //foreign relationships
         public int? ShopID { get; set; } = 1;
 
-        [Required]
+        
         public int? ItemID { get; set; }
 
 
-        //Model Navigaiton propert 
+        //Model Navigaiton propert
         //may not need the below
+        [JsonIgnore]
+        public ItemModel? Item { get; set; }
+
         
-        public virtual ItemModel? Item { get; set; }
-        public virtual ShopModel? Shop { get; set; }
+        public ShopModel? Shop { get; set; }
 
 
     }

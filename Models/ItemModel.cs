@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace Models
 {
@@ -23,13 +25,13 @@ namespace Models
         public string ItemType { get; set;  } = "";
 
 
-        //foreign attributes. Don't think I need this
-        //[InverseProperty("ProductFromShopAModel")]
-        
-       public  virtual ProductFromShopAModel? ProductsA { get; set; }
+       
+       //[JsonIgnore]
+        public ProductFromShopAModel? productFromShopAModel { get; set; }
 
-        public virtual ProductFromShopBModel? ProductsB { get; set; } 
-
+        //[JsonIgnore]
+        public ProductFromShopBModel? productFromShopBModel { get; set; }
+      
         
     }
 }

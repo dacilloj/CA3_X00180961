@@ -4,6 +4,7 @@ using CA3_X00180961.ShopRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ShopRepository.Migrations
 {
     [DbContext(typeof(CA3_X00180961Context))]
-    partial class CA3_X00180961ContextModelSnapshot : ModelSnapshot
+    [Migration("20221217160622_20221217_1606")]
+    partial class _20221217_1606
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,6 +44,12 @@ namespace ShopRepository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProductAID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductBID")
+                        .HasColumnType("int");
+
                     b.HasKey("ItemId");
 
                     b.ToTable("ItemModel");
@@ -56,6 +64,7 @@ namespace ShopRepository.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
                     b.Property<int?>("ItemID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<double>("ProductPrice")
@@ -67,8 +76,7 @@ namespace ShopRepository.Migrations
                     b.HasKey("ProductId");
 
                     b.HasIndex("ItemID")
-                        .IsUnique()
-                        .HasFilter("[ItemID] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("ShopID");
 
@@ -123,7 +131,9 @@ namespace ShopRepository.Migrations
                 {
                     b.HasOne("Models.ItemModel", "Item")
                         .WithOne("productFromShopAModel")
-                        .HasForeignKey("Models.ProductFromShopAModel", "ItemID");
+                        .HasForeignKey("Models.ProductFromShopAModel", "ItemID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Models.ShopModel", "Shop")
                         .WithMany()
