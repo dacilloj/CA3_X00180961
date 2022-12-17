@@ -3,9 +3,9 @@ using Models;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
-namespace ShopViewClient.Controller
+namespace ShopViewClient.Controllers
 {
-    public class HomeController : ControllerBase
+    public class HomeController : Controller
     {
         string Baseurl = "http://192.168.95.1:5555/";
         public async Task<ActionResult> Index()
