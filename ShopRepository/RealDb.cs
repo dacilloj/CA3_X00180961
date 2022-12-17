@@ -21,9 +21,17 @@ namespace ShopRepository
             _db.SaveChanges();
         }
 
-        public void DeleteItem(int id, ItemModel item)
+        public void DeleteItem(int id)
         {
-            _db.ItemModel.Remove(item);
+            var to_delete = _db.ItemModel.FirstOrDefault( x => x.ItemId == id);  
+            _db.ItemModel.Remove(to_delete);
+
+        }
+
+        public ItemModel? GetByID(int id)
+        {
+            var ret = _db.ItemModel.FirstOrDefault(x => x.ItemId== id);
+            return ret;
         }
 
         public IEnumerable<ItemModel> GetItemModels()

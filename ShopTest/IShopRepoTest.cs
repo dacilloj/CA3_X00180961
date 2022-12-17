@@ -7,12 +7,14 @@ using Moq;
 using ServiceStack;
 using ShopRepository;
 using ShopRepository.Repository;
+using System.Web.Http;
 
 namespace ShopTest
 {
     [TestClass]
     public class IShopRepoTest
     {
+        Mock<IShopRepo> _shopRepo = new Mock<IShopRepo>();
 
         [TestMethod]
         public void GetAllItemsTest()
@@ -23,7 +25,7 @@ namespace ShopTest
              };
 
 
-            Mock<IShopRepo> _shopRepo = new Mock<IShopRepo>();
+            
             _shopRepo.Setup(x => x.GetItemModels()).Returns(() => expected);
             var controller = new ItemModelsController(_shopRepo.Object);
          
@@ -34,6 +36,19 @@ namespace ShopTest
             Assert.AreEqual(expected.GetType(), response.GetType());
            
             
+        }
+
+        [TestMethod]
+        public void GetReturnsNotFound()
+        {
+            // Arrange
+            var controller = new ItemModelsController(_shopRepo.Object);
+
+            // Act
+            //IHttpActionResult actionResult = controller.Delete(10);
+
+            // Assert
+            //Assert.IsInstanceOfType(actionResult, typeof(NotFoundResult));
         }
     }
 }

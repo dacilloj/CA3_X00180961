@@ -12,5 +12,8 @@ namespace ShopRepository.Repository
         public IEnumerable<ItemModel> GetItemModels();
         void CreateItem(ItemModel item);
         void UpdateItem(int id, ItemModel item);
+        void DeleteItem(int id);
+
+        public ItemModel GetByID(int id);
     }
 }

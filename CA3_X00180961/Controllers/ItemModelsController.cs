@@ -25,18 +25,18 @@ namespace CA3_X00180961.Controllers
 
         // GET: api/ItemModels
         [HttpGet]
-       
-        public  ActionResult<IEnumerable<ItemModel>> GetItemModel()
+
+        public ActionResult<IEnumerable<ItemModel>> GetItemModel()
         {
             //return await _context.ItemModel.Include(nameof(ItemModel.productFromShopAModel)) //caused a cycle
             //                               .Include(nameof(ItemModel.productFromShopBModel))
-                                           
+
             //                               .ToListAsync();
-            
-            return  _repo.GetItemModels().ToList();
+
+            return _repo.GetItemModels().ToList();
         }
 
-      
+
 
         //POST: api/ItemModels
 
@@ -47,22 +47,20 @@ namespace CA3_X00180961.Controllers
             _repo.CreateItem(itemModel);
             return CreatedAtAction("GetItemModel", new { id = itemModel.ItemId }, itemModel);
         }
-        
-        /*
-        // GET: api/ItemModels/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ItemModel>> GetItemModel(int id)
+
+        [HttpDelete]
+        public void DeleteItem(int id)
         {
-            var itemModel = await _context.ItemModel.FindAsync(id);
+            _repo.DeleteItem(id);
 
-            if (itemModel == null)
-            {
-                return NotFound();
-            }
-
-            return itemModel;
         }
 
+      
+
+
+        /*
+        
+        
         // PUT: api/ItemModels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
