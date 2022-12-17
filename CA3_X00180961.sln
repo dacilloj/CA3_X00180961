@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopRepository", "ShopRepository\ShopRepository.csproj", "{DBD93F3C-C30D-448C-89CE-CE1DA229892E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTest", "ShopTest\ShopTest.csproj", "{766922F6-14D4-4647-908A-6D3542164C0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTest", "ShopTest\ShopTest.csproj", "{766922F6-14D4-4647-908A-6D3542164C0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

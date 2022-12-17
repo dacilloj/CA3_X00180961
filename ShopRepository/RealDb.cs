@@ -25,6 +25,7 @@ namespace ShopRepository
         {
             var to_delete = _db.ItemModel.FirstOrDefault( x => x.ItemId == id);  
             _db.ItemModel.Remove(to_delete);
+            _db.SaveChanges();
 
         }
 
@@ -46,6 +47,13 @@ namespace ShopRepository
            
             _db.Entry(item).State = EntityState.Modified;
             
+        }
+
+        public IEnumerable<ProductFromShopAModel> GetProductModelsFromA()
+        {
+            return  _db.ProductFromShopAModel.Include(nameof(Models.ProductFromShopAModel.Item)) //caused a cyle
+                                                .Include(nameof(Models.ProductFromShopAModel.Shop))
+                                    .ToList();
         }
 
         public void UpdateProduct(int id, ProductFromShopBModel product)

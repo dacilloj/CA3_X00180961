@@ -21,7 +21,13 @@ namespace CA3_X00180961.Controllers
         {
             _repo = repo;
         }
+
+
         [HttpGet]
+        public IEnumerable<ProductFromShopAModel> GetProductsA()
+        {
+            return _repo.GetProductModelsFromA();
+        }
 
         /*
         // GET: api/ProductModels

@@ -27,7 +27,7 @@ namespace CA3_X00180961.Controllers
         {
             return await _context.ProductFromShopBModel.ToListAsync();
         }
-
+       /*
         // GET: api/ProductFromShopBModels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductFromShopBModel>> GetProductFromShopBModel(int id)
@@ -104,5 +104,6 @@ namespace CA3_X00180961.Controllers
         {
             return _context.ProductFromShopBModel.Any(e => e.ProductId == id);
         }
+       */
     }
 }

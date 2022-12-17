@@ -18,10 +18,13 @@ namespace ShopRepository.Repository
 
         public ItemModel GetByID(int id);
 
-        //for products
+        //for products A
+        public IEnumerable<ProductFromShopAModel> GetProductModelsFromA();
         void UpdateProductA(int id, ProductFromShopAModel product);
 
         void UpdateProduct(int id, ProductFromShopBModel product);   
 
+
+        //for products B
     }
 }
