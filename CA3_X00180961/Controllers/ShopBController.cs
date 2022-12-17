@@ -12,18 +12,18 @@ namespace CA3_X00180961.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductFromShopBModelsController : ControllerBase
+    public class ShopBController : ControllerBase
     {
         private readonly CA3_X00180961Context _context;
 
-        public ProductFromShopBModelsController(CA3_X00180961Context context)
+        public ShopBController(CA3_X00180961Context context)
         {
             _context = context;
         }
 
         // GET: api/ProductFromShopBModels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductFromShopBModel>>> GetProductFromShopBModel()
+        public async Task<ActionResult<IEnumerable<ShopB>>> GetProductFromShopBModel()
         {
             return await _context.ProductFromShopBModel.ToListAsync();
         }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class ProductFromShopAModel
+    public class ShopA
     {
        
         [Key]
@@ -34,7 +34,7 @@ namespace Models
         [JsonIgnore]
         public ItemModel? Item { get; set; }
 
-        
+        [JsonInclude]
         public ShopModel? Shop { get; set; }
 
 

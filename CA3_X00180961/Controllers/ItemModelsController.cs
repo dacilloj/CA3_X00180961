@@ -45,7 +45,7 @@ namespace CA3_X00180961.Controllers
         {
 
             _repo.CreateItem(itemModel);
-            return CreatedAtAction("GetItemModel", new { id = itemModel.ItemId }, itemModel);
+            return CreatedAtAction("GetItemByID", new { id = itemModel.ItemId }, itemModel);
         }
 
         [HttpDelete]

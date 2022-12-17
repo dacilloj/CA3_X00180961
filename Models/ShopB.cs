@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class ProductFromShopBModel
+    public class ShopB
     {
        
         [Key]
@@ -21,7 +21,7 @@ namespace Models
 
         //foreign relationships
         [JsonIgnore]
-        public int? ShopID { get; set; } = 2;
+        public int ShopID { get; set; } = 2;
 
         [Required]
         public int ItemID { get; set; }
@@ -31,7 +31,7 @@ namespace Models
         public virtual ItemModel? Item { get; set; }
 
         
-        public virtual ShopModel Shop { get; set; } 
+        public ShopModel? Shop { get; set; } 
 
     }
 }

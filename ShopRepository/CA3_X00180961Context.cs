@@ -15,11 +15,11 @@ namespace CA3_X00180961.ShopRepository
         {
         }
 
-        public DbSet<Models.ProductFromShopAModel> ProductFromShopAModel { get; set; } = default!;
+        public DbSet<Models.ShopA> ProductFromShopAModel { get; set; } = default!;
 
         public DbSet<Models.ItemModel> ItemModel { get; set; } = default!;
 
-        public DbSet<Models.ProductFromShopBModel> ProductFromShopBModel { get; set; } = default!;
+        public DbSet<Models.ShopB> ProductFromShopBModel { get; set; } = default!;
 
 
         public DbSet<Models.ShopModel> ShopModel { get; set; } = default!;
@@ -31,12 +31,12 @@ namespace CA3_X00180961.ShopRepository
             modelBuilder.Entity<ItemModel>()
                 .HasOne(b => b.productFromShopAModel)
                 .WithOne(i => i.Item)
-                .HasForeignKey<ProductFromShopAModel>(b => b.ItemID);
+                .HasForeignKey<ShopA>(b => b.ItemID);
 
             modelBuilder.Entity<ItemModel>()
                 .HasOne(b => b.productFromShopBModel)
                 .WithOne(i => i.Item)
-                .HasForeignKey<ProductFromShopBModel>(b => b.ItemID);
+                .HasForeignKey<ShopB>(b => b.ItemID);
         }
     }
 }

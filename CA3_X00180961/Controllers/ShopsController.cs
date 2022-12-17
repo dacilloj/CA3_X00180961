@@ -13,11 +13,11 @@ namespace CA3_X00180961.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShopModelsController : ControllerBase
+    public class ShopsController : ControllerBase
     {
         private readonly IShopRepo _repo;
 
-        public ShopModelsController(IShopRepo repo)
+        public ShopsController(IShopRepo repo)
         {
             _repo = repo;
         }

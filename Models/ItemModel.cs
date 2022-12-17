@@ -27,10 +27,10 @@ namespace Models
 
        
        //[JsonIgnore]
-        public ProductFromShopAModel? productFromShopAModel { get; set; }
+        public ShopA? productFromShopAModel { get; set; }
 
         //[JsonIgnore]
-        public ProductFromShopBModel? productFromShopBModel { get; set; }
+        public ShopB? productFromShopBModel { get; set; }
       
         
     }

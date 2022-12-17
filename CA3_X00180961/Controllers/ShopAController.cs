@@ -13,22 +13,31 @@ namespace CA3_X00180961.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductFromShopAModelController : ControllerBase
+    public class ShopAController : ControllerBase
     {
         private readonly IShopRepo _repo;
 
-        public ProductFromShopAModelController(IShopRepo repo)
+        public ShopAController(IShopRepo repo)
         {
             _repo = repo;
         }
 
 
         [HttpGet]
-        public IEnumerable<ProductFromShopAModel> GetProductsA()
+        public IEnumerable<ShopA> GetProductsA()
         {
             return _repo.GetProductModelsFromA();
         }
 
+
+
+        [HttpPost]
+        public ActionResult<ShopA> PostShopA(ShopA product)
+        {
+
+            _repo.CreateProductA(product);
+            return CreatedAtAction("GetProductsA", new { id = product.ProductId }, product);
+        }
         /*
         // GET: api/ProductModels
         [HttpGet]

@@ -29,7 +29,7 @@ namespace ShopRepository
 
         }
 
-        public ItemModel? GetByID(int id)
+        public ItemModel? GetItemByID(int id)
         {
             var ret = _db.ItemModel.FirstOrDefault(x => x.ItemId== id);
             return ret;
@@ -49,21 +49,27 @@ namespace ShopRepository
             
         }
 
-        public IEnumerable<ProductFromShopAModel> GetProductModelsFromA()
+        //Shop A
+        public IEnumerable<ShopA> GetProductModelsFromA()
         {
-            return  _db.ProductFromShopAModel.Include(nameof(Models.ProductFromShopAModel.Item)) //caused a cyle
-                                                .Include(nameof(Models.ProductFromShopAModel.Shop))
+            return  _db.ProductFromShopAModel.Include(nameof(Models.ShopA.Item)) //caused a cyle
+                                                .Include(nameof(Models.ShopA.Shop))
                                     .ToList();
         }
-
-        public void UpdateProduct(int id, ProductFromShopBModel product)
+        public void CreateProductA(ShopA item)
+        {
+            _db.ProductFromShopAModel.Add(item);
+            _db.SaveChanges();
+        }
+        public void UpdateProductB(int id, ShopB product)
         {
            _db.Entry(product).State = EntityState.Modified;
         }
 
-        public void UpdateProductA(int id, ProductFromShopAModel product)
+        public void UpdateProductA(int id, ShopA product)
         {
             throw new NotImplementedException();
         }
+
     }
 }

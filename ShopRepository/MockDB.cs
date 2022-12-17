@@ -10,18 +10,18 @@ namespace ShopRepository
 {
     public class MockDB 
     {
-        IEnumerable<ProductFromShopAModel> MockShopA = new List<ProductFromShopAModel> 
+        IEnumerable<ShopA> MockShopA = new List<ShopA> 
         {
-            new ProductFromShopAModel{ ProductId = 1, ItemID = 1, ProductPrice = 999, ShopID = 1 },
-            new ProductFromShopAModel{ ProductId = 2, ItemID = 2, ProductPrice = 2000, ShopID = 1},
-            new ProductFromShopAModel{ ProductId = 3, ItemID = 3, ProductPrice = 200, ShopID =  1},
+            new ShopA{ ProductId = 1, ItemID = 1, ProductPrice = 999, ShopID = 1 },
+            new ShopA{ ProductId = 2, ItemID = 2, ProductPrice = 2000, ShopID = 1},
+            new ShopA{ ProductId = 3, ItemID = 3, ProductPrice = 200, ShopID =  1},
         };
 
-        IEnumerable<ProductFromShopBModel> MockShopB = new List<ProductFromShopBModel>
+        IEnumerable<ShopB> MockShopB = new List<ShopB>
         {
-            new ProductFromShopBModel{ ProductId = 1, ItemID = 1, ProductPrice = 800, ShopID = 2 },
-            new ProductFromShopBModel{ ProductId = 2, ItemID = 2, ProductPrice = 2500, ShopID = 2},
-            new ProductFromShopBModel{ ProductId = 3, ItemID = 3, ProductPrice = 250, ShopID = 2 },
+            new ShopB{ ProductId = 1, ItemID = 1, ProductPrice = 800, ShopID = 2 },
+            new ShopB{ ProductId = 2, ItemID = 2, ProductPrice = 2500, ShopID = 2},
+            new ShopB{ ProductId = 3, ItemID = 3, ProductPrice = 250, ShopID = 2 },
         };
 
         IEnumerable<ItemModel> Items = new List<ItemModel>
