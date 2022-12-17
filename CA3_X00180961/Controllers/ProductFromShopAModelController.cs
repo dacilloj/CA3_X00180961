@@ -21,7 +21,7 @@ namespace CA3_X00180961.Controllers
         {
             _repo = repo;
         }
-        [HttpGet]
+        //[HttpGet]
 
         /*
         // GET: api/ProductModels
@@ -109,5 +109,6 @@ namespace CA3_X00180961.Controllers
             return _context.ProductFromShopAModel.Any(e => e.ProductId == id);
         }
         */
+    
     }
 }
