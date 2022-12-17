@@ -25,6 +25,7 @@ namespace CA3_X00180961.ShopRepository
 
 
         //can use modelBuilder or data annotations to denote entity replationships
+
         
     }
 }

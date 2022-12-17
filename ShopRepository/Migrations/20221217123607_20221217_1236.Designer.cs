@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ShopRepository.Migrations
 {
     [DbContext(typeof(CA3_X00180961Context))]
-    [Migration("20221210221928_initialdb")]
-    partial class initialdb
+    [Migration("20221217123607_20221217_1236")]
+    partial class _20221217_1236
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,6 @@ namespace ShopRepository.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
                     b.Property<int?>("ItemID")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<double>("ProductPrice")
@@ -69,11 +68,14 @@ namespace ShopRepository.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("ItemID");
+                    b.HasIndex("ItemID")
+                        .IsUnique()
+                        .HasFilter("[ItemID] IS NOT NULL");
 
-                    b.HasIndex("ShopID");
+                    b.HasIndex("ShopID")
+                        .IsUnique();
 
-                    b.ToTable("ProductModel");
+                    b.ToTable("ProductFromShopAModel");
                 });
 
             modelBuilder.Entity("Models.ProductFromShopBModel", b =>
@@ -96,9 +98,11 @@ namespace ShopRepository.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("ItemID");
+                    b.HasIndex("ItemID")
+                        .IsUnique();
 
-                    b.HasIndex("ShopID");
+                    b.HasIndex("ShopID")
+                        .IsUnique();
 
                     b.ToTable("ProductFromShopBModel");
                 });
@@ -123,14 +127,12 @@ namespace ShopRepository.Migrations
             modelBuilder.Entity("Models.ProductFromShopAModel", b =>
                 {
                     b.HasOne("Models.ItemModel", "Item")
-                        .WithMany("Products")
-                        .HasForeignKey("ItemID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithOne("ProductsA")
+                        .HasForeignKey("Models.ProductFromShopAModel", "ItemID");
 
                     b.HasOne("Models.ShopModel", "Shop")
-                        .WithMany("Products")
-                        .HasForeignKey("ShopID")
+                        .WithOne("ProductsA")
+                        .HasForeignKey("Models.ProductFromShopAModel", "ShopID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -142,14 +144,14 @@ namespace ShopRepository.Migrations
             modelBuilder.Entity("Models.ProductFromShopBModel", b =>
                 {
                     b.HasOne("Models.ItemModel", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemID")
+                        .WithOne("ProductsB")
+                        .HasForeignKey("Models.ProductFromShopBModel", "ItemID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Models.ShopModel", "Shop")
-                        .WithMany()
-                        .HasForeignKey("ShopID")
+                        .WithOne("ProductsB")
+                        .HasForeignKey("Models.ProductFromShopBModel", "ShopID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -160,12 +162,16 @@ namespace ShopRepository.Migrations
 
             modelBuilder.Entity("Models.ItemModel", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("ProductsA");
+
+                    b.Navigation("ProductsB");
                 });
 
             modelBuilder.Entity("Models.ShopModel", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("ProductsA");
+
+                    b.Navigation("ProductsB");
                 });
 #pragma warning restore 612, 618
         }

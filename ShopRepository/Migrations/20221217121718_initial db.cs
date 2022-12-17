@@ -37,6 +37,32 @@ namespace ShopRepository.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductFromShopAModel",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductPrice = table.Column<double>(type: "float", nullable: false),
+                    ShopID = table.Column<int>(type: "int", nullable: false),
+                    ItemID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductFromShopAModel", x => x.ProductId);
+                    table.ForeignKey(
+                        name: "FK_ProductFromShopAModel_ItemModel_ItemID",
+                        column: x => x.ItemID,
+                        principalTable: "ItemModel",
+                        principalColumn: "ItemId");
+                    table.ForeignKey(
+                        name: "FK_ProductFromShopAModel_ShopModel_ShopID",
+                        column: x => x.ShopID,
+                        principalTable: "ShopModel",
+                        principalColumn: "ShopId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductFromShopBModel",
                 columns: table => new
                 {
@@ -63,61 +89,39 @@ namespace ShopRepository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "ProductModel",
-                columns: table => new
-                {
-                    ProductId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductPrice = table.Column<double>(type: "float", nullable: false),
-                    ShopID = table.Column<int>(type: "int", nullable: false),
-                    ItemID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductModel", x => x.ProductId);
-                    table.ForeignKey(
-                        name: "FK_ProductModel_ItemModel_ItemID",
-                        column: x => x.ItemID,
-                        principalTable: "ItemModel",
-                        principalColumn: "ItemId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductModel_ShopModel_ShopID",
-                        column: x => x.ShopID,
-                        principalTable: "ShopModel",
-                        principalColumn: "ShopId",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductFromShopAModel_ItemID",
+                table: "ProductFromShopAModel",
+                column: "ItemID",
+                unique: true,
+                filter: "[ItemID] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductFromShopAModel_ShopID",
+                table: "ProductFromShopAModel",
+                column: "ShopID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFromShopBModel_ItemID",
                 table: "ProductFromShopBModel",
-                column: "ItemID");
+                column: "ItemID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFromShopBModel_ShopID",
                 table: "ProductFromShopBModel",
-                column: "ShopID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductModel_ItemID",
-                table: "ProductModel",
-                column: "ItemID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductModel_ShopID",
-                table: "ProductModel",
-                column: "ShopID");
+                column: "ShopID",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProductFromShopBModel");
+                name: "ProductFromShopAModel");
 
             migrationBuilder.DropTable(
-                name: "ProductModel");
+                name: "ProductFromShopBModel");
 
             migrationBuilder.DropTable(
                 name: "ItemModel");

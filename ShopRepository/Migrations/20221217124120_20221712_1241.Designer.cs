@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ShopRepository.Migrations
 {
     [DbContext(typeof(CA3_X00180961Context))]
-    [Migration("20221217115000_db cration for repo")]
-    partial class dbcrationforrepo
+    [Migration("20221217124120_20221712_1241")]
+    partial class _20221712_1241
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

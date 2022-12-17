@@ -10,7 +10,7 @@ namespace Models
 {
     public class ProductFromShopBModel
     {
-        [Required]
+       
         [Key]
         [JsonIgnore]
         public int ProductId { get; set; }
@@ -19,7 +19,8 @@ namespace Models
         public double ProductPrice { get; set; }
 
         //foreign relationships
-        public int ShopID { get; set; } = 2;
+        [JsonIgnore]
+        public int? ShopID { get; set; } = 2;
 
         [Required]
         public int? ItemID { get; set; }

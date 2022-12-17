@@ -11,7 +11,7 @@ namespace Models
 {
     public class ProductFromShopAModel
     {
-        [Required]
+       
         [Key]
         [JsonIgnore]
         public int ProductId { get; set; }
@@ -19,20 +19,23 @@ namespace Models
         [Required]
         public double ProductPrice { get; set; }
 
-        [ForeignKey("ShopID")]
+      
         [JsonIgnore]
         //foreign relationships
-        public int ShopID { get; set; } = 1;
+        public int? ShopID { get; set; } = 1;
 
-        [ForeignKey("ItemModel")]
+        [Required]
         public int? ItemID { get; set; }
 
-        
+
+        //Model Navigaiton propert
         //may not need the below
-        public ItemModel Item { get; set; } = default!;
+        
+        public virtual ItemModel? Item { get; set; }
+
 
         
-        public ShopModel Shop { get; set; } = default!;
+        public virtual ShopModel? Shop { get; set; }
 
 
     }

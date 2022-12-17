@@ -25,7 +25,8 @@ namespace CA3_X00180961.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductFromShopAModel>>> GetProductModel()
         {
-            return await _context.ProductFromShopAModel.ToListAsync();
+            return await _context.ProductFromShopAModel//.Include("ItemModel")
+                                    .ToListAsync();
         }
 
         // GET: api/ProductModels/5

@@ -10,7 +10,6 @@ namespace Models
 {
     public class ShopModel
     {
-        [Required]
         [Key]
         [JsonIgnore]
         public int ShopId { get; set; }
@@ -18,11 +17,15 @@ namespace Models
         [Required]
         public string ShopName { get; set; } = "";
 
+        //public string? ShopAddress { get; set; } = "";
+
+        //[EmailAddress] 
+        //public string? ShopEmailAddress { get; set;} = ""'
         //foreign attributes. Don't think I need this
         //[InverseProperty("ProductFromShopAModel")]
-        public virtual ProductFromShopAModel? ProductsA { get; set; }
+        //public virtual ProductFromShopAModel? ProductsA { get; set; }
 
         // [InverseProperty("ProductFromShopBModel")]
-        public virtual  ProductFromShopBModel? ProductsB { get; set; }
+        //public virtual  ProductFromShopBModel? ProductsB { get; set; }
     }
 }
