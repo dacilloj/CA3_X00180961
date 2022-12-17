@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using CA3_X00180961.ShopRepository;
+using ShopRepository.Repository;
 
 namespace CA3_X00180961.Controllers
 {
@@ -14,13 +15,15 @@ namespace CA3_X00180961.Controllers
     [ApiController]
     public class ProductFromShopAModelController : ControllerBase
     {
-        private readonly CA3_X00180961Context _context;
+        private readonly IShopRepo _repo;
 
-        public ProductFromShopAModelController(CA3_X00180961Context context)
+        public ProductFromShopAModelController(IShopRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
+        [HttpGet]
 
+        /*
         // GET: api/ProductModels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductFromShopAModel>>> GetProductModel()
@@ -105,5 +108,6 @@ namespace CA3_X00180961.Controllers
         {
             return _context.ProductFromShopAModel.Any(e => e.ProductId == id);
         }
+        */
     }
 }

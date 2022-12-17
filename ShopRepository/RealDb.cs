@@ -48,6 +48,14 @@ namespace ShopRepository
             
         }
 
-        
+        public void UpdateProduct(int id, ProductFromShopBModel product)
+        {
+           _db.Entry(product).State = EntityState.Modified;
+        }
+
+        public void UpdateProductA(int id, ProductFromShopAModel product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
