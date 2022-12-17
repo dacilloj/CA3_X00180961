@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CA3_X00180961.ShopRepository;
+using ShopRepository.Repository;
+using ShopRepository;
+
 namespace CA3_X00180961
 {
     public class Program
@@ -12,7 +15,7 @@ namespace CA3_X00180961
                 options.UseSqlServer(builder.Configuration.GetConnectionString("CA3_X00180961Context") ?? throw new InvalidOperationException("Connection string 'CA3_X00180961Context' not found.")));
 
             // Add services to the container.
-
+            builder.Services.AddScoped<IShopRepo, RealDb>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

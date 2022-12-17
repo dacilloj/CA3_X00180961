@@ -4,11 +4,11 @@ using ShopRepository.Repository;
 
 namespace ShopRepository
 {
-    public class ReadDb : IShopRepo
+    public class RealDb : IShopRepo
     {
         CA3_X00180961Context _db;
 
-        public ReadDb(CA3_X00180961Context db)
+        public RealDb(CA3_X00180961Context db)
         {
             _db = db;
         }
