@@ -14,16 +14,17 @@ namespace CA3_X00180961.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemModelsController : ControllerBase
+    public class ItemsController : ControllerBase
     {
         private readonly IShopRepo _repo;
 
-        public ItemModelsController(IShopRepo repo)
+        public ItemsController(IShopRepo repo)
         {
             _repo = repo;
         }
 
         // GET: api/ItemModels
+       
         [HttpGet]
 
         public ActionResult<IEnumerable<ItemModel>> GetItemModel()

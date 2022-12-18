@@ -27,7 +27,7 @@ namespace ShopTest
 
             
             _shopRepo.Setup(x => x.GetItemModels()).Returns(() => expected);
-            var controller = new ItemModelsController(_shopRepo.Object);
+            var controller = new ItemsController(_shopRepo.Object);
          
             //ACT
             var response = controller.GetItemModel();
@@ -42,7 +42,7 @@ namespace ShopTest
         public void GetReturnsNotFound()
         {
             // Arrange
-            var controller = new ItemModelsController(_shopRepo.Object);
+            var controller = new ItemsController(_shopRepo.Object);
 
             // Act
             //IHttpActionResult actionResult = controller.Delete(10);
