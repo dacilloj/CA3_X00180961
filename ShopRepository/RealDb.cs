@@ -61,15 +61,24 @@ namespace ShopRepository
             _db.ProductFromShopAModel.Add(item);
             _db.SaveChanges();
         }
-        public void UpdateProductB(int id, ShopB product)
-        {
-           _db.Entry(product).State = EntityState.Modified;
-        }
+       
 
         public void UpdateProductA(int id, ShopA product)
         {
-            throw new NotImplementedException();
+            _db.Entry(product).State = EntityState.Modified;
+            _db.SaveChanges();
         }
 
+        public void CreateProductA(ShopB item)
+        {
+            _db.ProductFromShopBModel.Add(item);
+            _db.SaveChanges();
+        }
+
+        public void UpdateProductB(int id, ShopB product)
+        {
+            _db.Entry(product).State = EntityState.Modified;
+            _db.SaveChanges();
+        }
     }
 }

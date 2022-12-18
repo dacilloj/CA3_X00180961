@@ -26,5 +26,7 @@ namespace ShopRepository.Repository
 
         public void CreateProductA(ShopA item);
         //for products B
+        public void CreateProductA(ShopB item);
+
     }
 }
