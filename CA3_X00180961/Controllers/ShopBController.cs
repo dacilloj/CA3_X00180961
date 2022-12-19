@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using CA3_X00180961.ShopRepository;
+using ShopRepository.Repository;
 
 namespace CA3_X00180961.Controllers
 {
@@ -14,11 +15,11 @@ namespace CA3_X00180961.Controllers
     [ApiController]
     public class ShopBController : ControllerBase
     {
-        private readonly CA3_X00180961Context _context;
+        private readonly IShopRepo _repo;
 
-        public ShopBController(CA3_X00180961Context context)
+        public ShopBController(IShopRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: api/ProductFromShopBModels
@@ -26,85 +27,94 @@ namespace CA3_X00180961.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShopB>>> GetProductFromShopBModel()
         {
-            return await _context.ProductFromShopBModel.ToListAsync();
-        }
-       /*
-        // GET: api/ProductFromShopBModels/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductFromShopBModel>> GetProductFromShopBModel(int id)
-        {
-            var productFromShopBModel = await _context.ProductFromShopBModel.FindAsync(id);
-
-            if (productFromShopBModel == null)
-            {
-                return NotFound();
-            }
-
-            return productFromShopBModel;
+            return  _repo.GetProductModelsFromB().ToList();
         }
 
-        // PUT: api/ProductFromShopBModels/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductFromShopBModel(int id, ProductFromShopBModel productFromShopBModel)
-        {
-            if (id != productFromShopBModel.ProductId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(productFromShopBModel).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductFromShopBModelExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/ProductFromShopBModels
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Route("Create")]
         [HttpPost]
-        public async Task<ActionResult<ProductFromShopBModel>> PostProductFromShopBModel(ProductFromShopBModel productFromShopBModel)
+        public ActionResult<ShopB> PostShopB(ShopB product)
         {
-            _context.ProductFromShopBModel.Add(productFromShopBModel);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProductFromShopBModel", new { id = productFromShopBModel.ProductId }, productFromShopBModel);
+            _repo.CreateProductB(product);
+            return CreatedAtAction("GetProductsA", new { id = product.ProductId }, product);
         }
+        /*
+         // GET: api/ProductFromShopBModels/5
+         [HttpGet("{id}")]
+         public async Task<ActionResult<ProductFromShopBModel>> GetProductFromShopBModel(int id)
+         {
+             var productFromShopBModel = await _context.ProductFromShopBModel.FindAsync(id);
 
-        // DELETE: api/ProductFromShopBModels/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProductFromShopBModel(int id)
-        {
-            var productFromShopBModel = await _context.ProductFromShopBModel.FindAsync(id);
-            if (productFromShopBModel == null)
-            {
-                return NotFound();
-            }
+             if (productFromShopBModel == null)
+             {
+                 return NotFound();
+             }
 
-            _context.ProductFromShopBModel.Remove(productFromShopBModel);
-            await _context.SaveChangesAsync();
+             return productFromShopBModel;
+         }
 
-            return NoContent();
-        }
+         // PUT: api/ProductFromShopBModels/5
+         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+         [HttpPut("{id}")]
+         public async Task<IActionResult> PutProductFromShopBModel(int id, ProductFromShopBModel productFromShopBModel)
+         {
+             if (id != productFromShopBModel.ProductId)
+             {
+                 return BadRequest();
+             }
 
-        private bool ProductFromShopBModelExists(int id)
-        {
-            return _context.ProductFromShopBModel.Any(e => e.ProductId == id);
-        }
-       */
+             _context.Entry(productFromShopBModel).State = EntityState.Modified;
+
+             try
+             {
+                 await _context.SaveChangesAsync();
+             }
+             catch (DbUpdateConcurrencyException)
+             {
+                 if (!ProductFromShopBModelExists(id))
+                 {
+                     return NotFound();
+                 }
+                 else
+                 {
+                     throw;
+                 }
+             }
+
+             return NoContent();
+         }
+
+         // POST: api/ProductFromShopBModels
+         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+         [HttpPost]
+         public async Task<ActionResult<ProductFromShopBModel>> PostProductFromShopBModel(ProductFromShopBModel productFromShopBModel)
+         {
+             _context.ProductFromShopBModel.Add(productFromShopBModel);
+             await _context.SaveChangesAsync();
+
+             return CreatedAtAction("GetProductFromShopBModel", new { id = productFromShopBModel.ProductId }, productFromShopBModel);
+         }
+
+         // DELETE: api/ProductFromShopBModels/5
+         [HttpDelete("{id}")]
+         public async Task<IActionResult> DeleteProductFromShopBModel(int id)
+         {
+             var productFromShopBModel = await _context.ProductFromShopBModel.FindAsync(id);
+             if (productFromShopBModel == null)
+             {
+                 return NotFound();
+             }
+
+             _context.ProductFromShopBModel.Remove(productFromShopBModel);
+             await _context.SaveChangesAsync();
+
+             return NoContent();
+         }
+
+         private bool ProductFromShopBModelExists(int id)
+         {
+             return _context.ProductFromShopBModel.Any(e => e.ProductId == id);
+         }
+        */
     }
 }

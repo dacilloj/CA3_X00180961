@@ -31,10 +31,11 @@ namespace Models
 
         //Model Navigaiton propert
         //may not need the below
+        [ForeignKey("ItemID")]
         [JsonIgnore]
         public ItemModel? Item { get; set; }
 
-        [JsonInclude]
+        [JsonIgnore]
         public ShopModel? Shop { get; set; }
 
 

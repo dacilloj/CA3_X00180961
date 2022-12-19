@@ -21,14 +21,22 @@ namespace CA3_X00180961.Controllers
         {
             _repo = repo;
         }
-        /*
+        
         // GET: api/ShopModels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShopModel>>> GetShopModel()
         {
-            return await _context.ShopModel.ToListAsync();
+            return _repo.GetShopModels().ToList();
         }
 
+        [HttpPost]
+        public  ActionResult<ShopModel> PostShopModel(ShopModel shopModel)
+        {
+             _repo.CreateShop(shopModel);
+
+            return CreatedAtAction("GetShopModel", new { id = shopModel.ShopId }, shopModel);
+        }
+        /*
         // GET: api/ShopModels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ShopModel>> GetShopModel(int id)

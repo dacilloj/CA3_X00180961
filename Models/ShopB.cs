@@ -30,7 +30,7 @@ namespace Models
         //may not need the below
         public virtual ItemModel? Item { get; set; }
 
-        
+        [JsonIgnore]
         public ShopModel? Shop { get; set; } 
 
     }

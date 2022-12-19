@@ -52,9 +52,9 @@ namespace ShopRepository
         //Shop A
         public IEnumerable<ShopA> GetProductModelsFromA()
         {
-            return  _db.ProductFromShopAModel.Include(nameof(Models.ShopA.Item)) //caused a cyle
-                                                .Include(nameof(Models.ShopA.Shop))
-                                    .ToList();
+            return _db.ProductFromShopAModel.Include(nameof(Models.ShopA.Item)) //caused a cyle
+                                                .Include(nameof(Models.ShopA.Shop));
+                                  
         }
         public void CreateProductA(ShopA item)
         {
@@ -69,7 +69,8 @@ namespace ShopRepository
             _db.SaveChanges();
         }
 
-        public void CreateProductA(ShopB item)
+        //shop b
+        public void CreateProductB(ShopB item)
         {
             _db.ProductFromShopBModel.Add(item);
             _db.SaveChanges();
@@ -78,6 +79,30 @@ namespace ShopRepository
         public void UpdateProductB(int id, ShopB product)
         {
             _db.Entry(product).State = EntityState.Modified;
+            _db.SaveChanges();
+        }
+
+        public IEnumerable<ShopB> GetProductModelsFromB()
+        {
+            return _db.ProductFromShopBModel.Include(nameof(Models.ShopB.Item)) //caused a cyle
+                                                .Include(nameof(Models.ShopB.Shop));
+                                
+        }
+
+        public ShopB? GetShopBByID(int id)
+        {
+            var ret = _db.ProductFromShopBModel.FirstOrDefault(x => x.ProductId == id);
+            return ret;
+        }
+
+        public IEnumerable<ShopModel> GetShopModels()
+        {
+            return _db.ShopModel;
+        }
+
+        public void CreateShop(ShopModel item)
+        {
+            _db.ShopModel.Add(item);
             _db.SaveChanges();
         }
     }

@@ -9,10 +9,8 @@ namespace Models
     public class ItemModel
     {
         //Primary Attributes
-        [Required]
         [Key]
         [Display(Name = "ID")]
-        [JsonIgnore]
         public int ItemId { get; set; }
 
         [Required]
