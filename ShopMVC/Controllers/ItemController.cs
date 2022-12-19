@@ -17,5 +17,7 @@ namespace ShopMVC.Controllers
             var items = await _service.Find();
             return View(items);
         }
+
+
     }
 }

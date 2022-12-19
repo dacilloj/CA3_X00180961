@@ -49,7 +49,7 @@ namespace CA3_X00180961.Controllers
             return CreatedAtAction("GetItemByID", new { id = itemModel.ItemId }, itemModel);
         }
 
-        [Route("Delete")]
+        [Route("Delete{id}")]
         [HttpDelete]
         public void DeleteItem(int id)
         {

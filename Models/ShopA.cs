@@ -35,7 +35,7 @@ namespace Models
         [JsonIgnore]
         public ItemModel? Item { get; set; }
 
-        [JsonIgnore]
+        
         public ShopModel? Shop { get; set; }
 
 

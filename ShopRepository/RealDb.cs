@@ -68,7 +68,12 @@ namespace ShopRepository
             _db.Entry(product).State = EntityState.Modified;
             _db.SaveChanges();
         }
-
+        public void DeleteFromShopA(int id)
+        {
+            var to_delete = _db.ProductFromShopAModel.FirstOrDefault(x => x.ProductId == id);
+            _db.ProductFromShopAModel.Remove(to_delete);
+            _db.SaveChanges();
+        }
         //shop b
         public void CreateProductB(ShopB item)
         {
@@ -94,15 +99,28 @@ namespace ShopRepository
             var ret = _db.ProductFromShopBModel.FirstOrDefault(x => x.ProductId == id);
             return ret;
         }
-
+        public void DeleteFromShopB(int id)
+        {
+            var to_delete = _db.ProductFromShopBModel.FirstOrDefault(x => x.ProductId == id);
+            _db.ProductFromShopBModel.Remove(to_delete);
+            _db.SaveChanges();
+        }
         public IEnumerable<ShopModel> GetShopModels()
         {
             return _db.ShopModel;
         }
 
+        //shops
         public void CreateShop(ShopModel item)
         {
             _db.ShopModel.Add(item);
+            _db.SaveChanges();
+        }
+
+        public void DeleteFromShop(int id)
+        {
+            var to_delete = _db.ShopModel.FirstOrDefault(x => x.ShopId == id);
+            _db.ShopModel.Remove(to_delete);
             _db.SaveChanges();
         }
     }

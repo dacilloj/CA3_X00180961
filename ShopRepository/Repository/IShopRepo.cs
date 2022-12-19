@@ -23,7 +23,7 @@ namespace ShopRepository.Repository
         void UpdateProductA(int id, ShopA product);
 
         void UpdateProductB(int id, ShopB product);
-
+        void DeleteFromShopA(int id);
 
         public void CreateProductA(ShopA item);
         //for products B
@@ -33,5 +33,6 @@ namespace ShopRepository.Repository
         //for shops
         public IEnumerable<ShopModel> GetShopModels();
         void CreateShop(ShopModel item);
+        void DeleteFromShop(int id);
     }
 }

@@ -36,6 +36,16 @@ namespace CA3_X00180961.Controllers
 
             return CreatedAtAction("GetShopModel", new { id = shopModel.ShopId }, shopModel);
         }
+
+        // DELETE: api/ShopModels/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteShopModel(int id)
+        {
+ 
+            _repo.DeleteFromShop(id);
+
+            return NoContent();
+        }
         /*
         // GET: api/ShopModels/5
         [HttpGet("{id}")]
@@ -93,21 +103,7 @@ namespace CA3_X00180961.Controllers
             return CreatedAtAction("GetShopModel", new { id = shopModel.ShopId }, shopModel);
         }
 
-        // DELETE: api/ShopModels/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteShopModel(int id)
-        {
-            var shopModel = await _context.ShopModel.FindAsync(id);
-            if (shopModel == null)
-            {
-                return NotFound();
-            }
-
-            _context.ShopModel.Remove(shopModel);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
+        
 
         private bool ShopModelExists(int id)
         {

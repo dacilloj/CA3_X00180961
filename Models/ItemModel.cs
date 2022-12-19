@@ -25,6 +25,7 @@ namespace Models
 
        
        //[JsonIgnore]
+
         public ShopA? productFromShopAModel { get; set; }
 
         //[JsonIgnore]
