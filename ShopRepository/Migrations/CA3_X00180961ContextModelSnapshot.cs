@@ -47,7 +47,7 @@ namespace ShopRepository.Migrations
                     b.ToTable("ItemModel");
                 });
 
-            modelBuilder.Entity("Models.ProductFromShopAModel", b =>
+            modelBuilder.Entity("Models.ShopA", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace ShopRepository.Migrations
                     b.ToTable("ProductFromShopAModel");
                 });
 
-            modelBuilder.Entity("Models.ProductFromShopBModel", b =>
+            modelBuilder.Entity("Models.ShopB", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,7 @@ namespace ShopRepository.Migrations
                     b.Property<double>("ProductPrice")
                         .HasColumnType("float");
 
-                    b.Property<int?>("ShopID")
+                    b.Property<int>("ShopID")
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
@@ -119,11 +119,11 @@ namespace ShopRepository.Migrations
                     b.ToTable("ShopModel");
                 });
 
-            modelBuilder.Entity("Models.ProductFromShopAModel", b =>
+            modelBuilder.Entity("Models.ShopA", b =>
                 {
                     b.HasOne("Models.ItemModel", "Item")
                         .WithOne("productFromShopAModel")
-                        .HasForeignKey("Models.ProductFromShopAModel", "ItemID");
+                        .HasForeignKey("Models.ShopA", "ItemID");
 
                     b.HasOne("Models.ShopModel", "Shop")
                         .WithMany()
@@ -134,17 +134,19 @@ namespace ShopRepository.Migrations
                     b.Navigation("Shop");
                 });
 
-            modelBuilder.Entity("Models.ProductFromShopBModel", b =>
+            modelBuilder.Entity("Models.ShopB", b =>
                 {
                     b.HasOne("Models.ItemModel", "Item")
                         .WithOne("productFromShopBModel")
-                        .HasForeignKey("Models.ProductFromShopBModel", "ItemID")
+                        .HasForeignKey("Models.ShopB", "ItemID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Models.ShopModel", "Shop")
                         .WithMany()
-                        .HasForeignKey("ShopID");
+                        .HasForeignKey("ShopID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Item");
 

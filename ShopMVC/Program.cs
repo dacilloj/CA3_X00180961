@@ -14,6 +14,8 @@ namespace ShopMVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddHttpClient<IItemService, ItemService>(c =>
                                         c.BaseAddress = new Uri("https://localhost:7150/"));
+            builder.Services.AddHttpClient<IShopAService, ShopAService>(c =>
+                                        c.BaseAddress = new Uri("https://localhost:7150/"));
             var app = builder.Build();
             //builder.Services.AddTransient<IShopRepo, RealDb>();
 

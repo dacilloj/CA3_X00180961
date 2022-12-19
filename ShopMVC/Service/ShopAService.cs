@@ -3,21 +3,21 @@ using ShopMVC.Helpers;
 
 namespace ShopMVC.Service
 {
-    public class ItemService : IItemService
+    public class ShopAService : IShopAService
     {
         private readonly HttpClient _client;
-        public const string BasePath = "/api/Items/All";
+        public const string BasePath = "/api/ShopA/All";
 
-        public ItemService(HttpClient client)
+        public ShopAService(HttpClient client)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
         }
 
-        public async Task<IEnumerable<ItemModel>> Find()
+        public async Task<IEnumerable<ShopA>> Find()
         {
             var response = await _client.GetAsync(BasePath);
 
-            return await response.ReadContentAsync<List<ItemModel>>();
+            return await response.ReadContentAsync<List<ShopA>>();
         }
     }
 }

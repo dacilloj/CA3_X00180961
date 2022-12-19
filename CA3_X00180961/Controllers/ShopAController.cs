@@ -22,7 +22,7 @@ namespace CA3_X00180961.Controllers
             _repo = repo;
         }
 
-
+        [Route("All")]
         [HttpGet]
         public IEnumerable<ShopA> GetProductsA()
         {
@@ -30,7 +30,7 @@ namespace CA3_X00180961.Controllers
         }
 
 
-
+        [Route("Create")]
         [HttpPost]
         public ActionResult<ShopA> PostShopA(ShopA product)
         {

@@ -24,7 +24,7 @@ namespace CA3_X00180961.Controllers
         }
 
         // GET: api/ItemModels
-       
+        [Route("All")]
         [HttpGet]
 
         public ActionResult<IEnumerable<ItemModel>> GetItemModel()
@@ -40,7 +40,7 @@ namespace CA3_X00180961.Controllers
 
 
         //POST: api/ItemModels
-
+        [Route("Create")]
         [HttpPost]
         public ActionResult<ItemModel> PostItemModel(ItemModel itemModel)
         {
@@ -49,6 +49,7 @@ namespace CA3_X00180961.Controllers
             return CreatedAtAction("GetItemByID", new { id = itemModel.ItemId }, itemModel);
         }
 
+        [Route("Delete")]
         [HttpDelete]
         public void DeleteItem(int id)
         {

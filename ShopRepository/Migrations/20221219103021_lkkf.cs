@@ -4,7 +4,7 @@
 
 namespace ShopRepository.Migrations
 {
-    public partial class initialdb : Migration
+    public partial class lkkf : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,7 @@ namespace ShopRepository.Migrations
                     ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductPrice = table.Column<double>(type: "float", nullable: false),
-                    ShopID = table.Column<int>(type: "int", nullable: false),
+                    ShopID = table.Column<int>(type: "int", nullable: true),
                     ItemID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -58,8 +58,7 @@ namespace ShopRepository.Migrations
                         name: "FK_ProductFromShopAModel_ShopModel_ShopID",
                         column: x => x.ShopID,
                         principalTable: "ShopModel",
-                        principalColumn: "ShopId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ShopId");
                 });
 
             migrationBuilder.CreateTable(
@@ -99,8 +98,7 @@ namespace ShopRepository.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFromShopAModel_ShopID",
                 table: "ProductFromShopAModel",
-                column: "ShopID",
-                unique: true);
+                column: "ShopID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFromShopBModel_ItemID",
@@ -111,8 +109,7 @@ namespace ShopRepository.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFromShopBModel_ShopID",
                 table: "ProductFromShopBModel",
-                column: "ShopID",
-                unique: true);
+                column: "ShopID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -22,6 +22,7 @@ namespace CA3_X00180961.Controllers
         }
 
         // GET: api/ProductFromShopBModels
+        [Route("All")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShopB>>> GetProductFromShopBModel()
         {

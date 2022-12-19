@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Models.ShopA>
+
+@{
+    ViewData["Title"] = "ShopAIndex";
+}
+
+<h1>ShopAIndex</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopID)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ItemID)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopID)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.ItemID)*@
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.ShopID  }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.ShopID  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.ShopID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
