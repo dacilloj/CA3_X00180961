@@ -34,6 +34,11 @@ namespace ShopMVC.Service
 
         }
 
-
+        public  Task<IEnumerable<ItemModel>> CreateItem(ItemModel item)
+        {
+            string path = BasePath + "Create";
+            var postItem = _client.PostAsJsonAsync<ItemModel>(path, item);
+            return Find();
+        }
     }
 }

@@ -24,15 +24,19 @@ namespace ShopRepository.Repository
 
         void UpdateProductB(int id, ShopB product);
         void DeleteFromShopA(int id);
+        public ShopA? GetProductAByID(int id);
 
         public void CreateProductA(ShopA item);
         //for products B
         public void CreateProductB(ShopB item);
         public IEnumerable<ShopB> GetProductModelsFromB();
+        public ShopB? GetProductBByID(int id);
 
         //for shops
         public IEnumerable<ShopModel> GetShopModels();
         void CreateShop(ShopModel item);
         void DeleteFromShop(int id);
+
+
     }
 }

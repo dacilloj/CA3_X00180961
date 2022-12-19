@@ -46,6 +46,13 @@ namespace CA3_X00180961.Controllers
             _repo.DeleteFromShopA(id);
 
         }
+
+        [Route("Product/id")]
+        [HttpGet]
+        public ActionResult<ShopA> GetProductsA(int id)
+        {
+            return _repo.GetProductAByID(id);
+        }
         /*
         // GET: api/ProductModels
         [HttpGet]

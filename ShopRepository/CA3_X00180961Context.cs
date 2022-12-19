@@ -31,12 +31,14 @@ namespace CA3_X00180961.ShopRepository
             modelBuilder.Entity<ItemModel>()
                 .HasOne(b => b.productFromShopAModel)
                 .WithOne(i => i.Item)
-                .HasForeignKey<ShopA>(b => b.ItemID);
+                .HasForeignKey<ShopA>(b => b.ItemID)
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             modelBuilder.Entity<ItemModel>()
                 .HasOne(b => b.productFromShopBModel)
                 .WithOne(i => i.Item)
-                .HasForeignKey<ShopB>(b => b.ItemID);
+                .HasForeignKey<ShopB>(b => b.ItemID)
+                .OnDelete(DeleteBehavior.ClientCascade);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace CA3_X00180961.Controllers
         {
 
             _repo.CreateItem(itemModel);
-            return CreatedAtAction("GetItemByID", new { id = itemModel.ItemId }, itemModel);
+            return CreatedAtAction("GetItem", new { id = itemModel.ItemId }, itemModel);
         }
         [Route("Delete/{id}")]
         [HttpDelete]
@@ -56,7 +56,12 @@ namespace CA3_X00180961.Controllers
             return _repo.GetItemModels().ToList();
         }
 
-      
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult<ItemModel> GetItem(int id)
+        {
+            return _repo.GetItemByID(id);
+        }
 
 
         /*

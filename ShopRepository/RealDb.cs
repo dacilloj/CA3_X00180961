@@ -61,7 +61,14 @@ namespace ShopRepository
             _db.ProductFromShopAModel.Add(item);
             _db.SaveChanges();
         }
-       
+
+        public ShopA? GetProductAByID(int id)
+        {
+            var ret = _db.ProductFromShopAModel.FirstOrDefault(x => x.ProductId == id);
+            return ret;
+        }
+
+
 
         public void UpdateProductA(int id, ShopA product)
         {
@@ -79,6 +86,12 @@ namespace ShopRepository
         {
             _db.ProductFromShopBModel.Add(item);
             _db.SaveChanges();
+        }
+
+        public ShopB? GetProductBByID(int id)
+        {
+            var ret = _db.ProductFromShopBModel.FirstOrDefault(x => x.ProductId == id);
+            return ret;
         }
 
         public void UpdateProductB(int id, ShopB product)

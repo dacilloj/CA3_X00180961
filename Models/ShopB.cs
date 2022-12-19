@@ -13,7 +13,7 @@ namespace Models
     {
        
         [Key]
-        [JsonIgnore]
+        
         public int ProductId { get; set; }
 
         [Required]
@@ -21,14 +21,14 @@ namespace Models
 
         //foreign relationships
         [JsonIgnore]
-        public int ShopID { get; set; } = 2;
+        public int? ShopID { get; set; } = 2;
 
-        [Required]
-        public int ItemID { get; set; }
+        
+        public int? ItemID { get; set; }
 
         [JsonIgnore]
         //may not need the below
-        public virtual ItemModel? Item { get; set; }
+        public ItemModel? Item { get; set; }
 
         [JsonIgnore]
         public ShopModel? Shop { get; set; } 

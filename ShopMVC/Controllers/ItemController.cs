@@ -29,9 +29,14 @@ namespace ShopMVC.Controllers
             return View(items);
         }
 
-       
-
-
-
+        public ActionResult Create()
+        {
+            return View();
         }
-    }
+            
+    }       
+
+
+
+        
+}
