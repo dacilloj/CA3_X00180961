@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CA3_X00180961.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Items")]
     [ApiController]
     public class ItemsController : ControllerBase
     {
@@ -48,13 +48,12 @@ namespace CA3_X00180961.Controllers
             _repo.CreateItem(itemModel);
             return CreatedAtAction("GetItemByID", new { id = itemModel.ItemId }, itemModel);
         }
-
-        [Route("Delete{id}")]
+        [Route("Delete/{id}")]
         [HttpDelete]
-        public void DeleteItem(int id)
+        public ActionResult<IEnumerable<ItemModel>> DeleteItem(int id)
         {
             _repo.DeleteItem(id);
-
+            return _repo.GetItemModels().ToList();
         }
 
       

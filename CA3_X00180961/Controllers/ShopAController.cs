@@ -11,7 +11,7 @@ using ShopRepository.Repository;
 
 namespace CA3_X00180961.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/ShopA")]
     [ApiController]
     public class ShopAController : ControllerBase
     {
@@ -39,7 +39,7 @@ namespace CA3_X00180961.Controllers
             return CreatedAtAction("GetProductsA", new { id = product.ProductId }, product);
         }
 
-        [Route("Delete{id}")]
+        [Route("Delete/{id}")]
         [HttpDelete]
         public void DeleteFromShopA(int id)
         {

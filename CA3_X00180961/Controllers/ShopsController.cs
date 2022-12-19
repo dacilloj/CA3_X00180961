@@ -11,7 +11,7 @@ using ShopRepository.Repository;
 
 namespace CA3_X00180961.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Shops")]
     [ApiController]
     public class ShopsController : ControllerBase
     {
@@ -21,8 +21,9 @@ namespace CA3_X00180961.Controllers
         {
             _repo = repo;
         }
-        
+
         // GET: api/ShopModels
+        [Route("All")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShopModel>>> GetShopModel()
         {
@@ -38,7 +39,8 @@ namespace CA3_X00180961.Controllers
         }
 
         // DELETE: api/ShopModels/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("Delete/{id:int}")]
         public async Task<IActionResult> DeleteShopModel(int id)
         {
  

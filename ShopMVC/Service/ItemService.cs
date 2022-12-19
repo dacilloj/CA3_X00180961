@@ -1,12 +1,14 @@
-﻿using Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Models;
 using ShopMVC.Helpers;
+using System.IO;
 
 namespace ShopMVC.Service
 {
     public class ItemService : IItemService
     {
         private readonly HttpClient _client;
-        public const string BasePath = "/api/Items/All";
+        public const string BasePath = "/api/Items/";
 
         public ItemService(HttpClient client)
         {
@@ -15,9 +17,23 @@ namespace ShopMVC.Service
 
         public async Task<IEnumerable<ItemModel>> Find()
         {
-            var response = await _client.GetAsync(BasePath);
+            string path = BasePath + "All";
+            var response = await _client.GetAsync(path);
 
             return await response.ReadContentAsync<List<ItemModel>>();
         }
+
+
+        public void Delete(int id)
+        {
+            
+            string path = BasePath + "Delete/";
+
+            //HTTP DELETE
+            var deleteTask = _client.DeleteAsync(path + id.ToString());
+
+        }
+
+
     }
 }
