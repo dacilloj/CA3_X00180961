@@ -11,6 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopRepository", "ShopRepos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTest", "ShopTest\ShopTest.csproj", "{766922F6-14D4-4647-908A-6D3542164C0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC", "ShopMVC\ShopMVC.csproj", "{AE252ECD-BAE5-43E8-8C7B-85FE760F995C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DBD93F3C-C30D-448C-89CE-CE1DA229892E} = {DBD93F3C-C30D-448C-89CE-CE1DA229892E}
+		{DBFBB52C-45BA-4569-9A3A-1AFDB9097CB1} = {DBFBB52C-45BA-4569-9A3A-1AFDB9097CB1}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +39,10 @@ Global
 		{766922F6-14D4-4647-908A-6D3542164C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{766922F6-14D4-4647-908A-6D3542164C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{766922F6-14D4-4647-908A-6D3542164C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE252ECD-BAE5-43E8-8C7B-85FE760F995C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE252ECD-BAE5-43E8-8C7B-85FE760F995C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE252ECD-BAE5-43E8-8C7B-85FE760F995C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE252ECD-BAE5-43E8-8C7B-85FE760F995C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
