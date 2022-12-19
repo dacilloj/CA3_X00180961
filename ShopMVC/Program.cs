@@ -1,3 +1,7 @@
+using ShopMVC.Service;
+using ShopRepository;
+using ShopRepository.Repository;
+
 namespace ShopMVC
 {
     public class Program
@@ -8,8 +12,10 @@ namespace ShopMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddHttpClient<IItemService, ItemService>(c =>
+                                        c.BaseAddress = new Uri("https://localhost:7150/"));
             var app = builder.Build();
+            //builder.Services.AddTransient<IShopRepo, RealDb>();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
